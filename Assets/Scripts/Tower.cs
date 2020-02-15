@@ -23,15 +23,18 @@ public class Tower : MonoBehaviour
     void Update()
     {
         target = FindClosestEnemy(GameObject.FindGameObjectsWithTag("Enemy"));
+        if (!target) {
+                timerToEnd -= Time.deltaTime;
+        }
 
-        if (timeSinceLastShoot >= 1/statistics.fireRate) {
+        if (timeSinceLastShoot >= 1/statistics.fireRate && target) {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, (target.transform.position - transform.position), out hit, statistics.range)) {
                 Debug.DrawRay(transform.position, (target.transform.position - transform.position) * hit.distance, Color.yellow);
                 Debug.Log(hit.transform.name);
                 hit.transform.GetComponent<Enemy>().hit(damage);
                 Debug.Log("HIT");
-                timerToEnd = 20.0f;
+                timerToEnd = 10.0f;
             }
             else
             {

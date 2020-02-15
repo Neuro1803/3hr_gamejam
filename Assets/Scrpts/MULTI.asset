@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dd8e3ec2a652624392f7f2c3155e364, type: 3}
-  m_Name: DMG
+  m_Name: MULTI
   m_EditorClassIdentifier: 
-  DmgMod: 3
+  DmgMod: 0
   RangeMod: 0
   ShotsMod: 0
-  MultiMod: 0
-  sprite: {fileID: 21300000, guid: a07a464e12033e14e8f960741a144df5, type: 3}
+  MultiMod: 1
+  sprite: {fileID: 21300000, guid: 70651c142d6252f4d983052c8413306c, type: 3}

@@ -10,5 +10,6 @@ public class Mod : ScriptableObject
     public int RangeMod;
     public int ShotsMod;
     public int MultiMod;
-    public Image Image;
+    public Sprite sprite;
+    public Color col;
 }

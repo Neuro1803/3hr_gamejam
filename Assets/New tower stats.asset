@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New tower stats
   m_EditorClassIdentifier: 
   damage: 20
-  range: 10
+  range: 100
   fireRate: 1
   multiTarget: 0
   slow: 0

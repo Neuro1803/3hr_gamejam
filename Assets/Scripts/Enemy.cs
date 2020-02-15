@@ -12,8 +12,9 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
 
     void Start () {
+        goal = GameObject.FindGameObjectWithTag("Wall").transform;
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = goal.position; 
+        agent.destination = goal.position;
     }
 
     public void hit(float damage) {

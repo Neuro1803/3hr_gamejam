@@ -13,7 +13,6 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = statistics.damage;
     }
 
     // Update is called once per frame
@@ -21,12 +20,12 @@ public class Tower : MonoBehaviour
     {
         target = FindClosestEnemy(GameObject.FindGameObjectsWithTag("Enemy"));
 
-        if (timeSinceLastShoot >= 1/statistics.fireRate) {
+        if (timeSinceLastShoot >= 1/statistics.fireRate && target) {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, (target.transform.position - transform.position), out hit, statistics.range)) {
                 Debug.DrawRay(transform.position, (target.transform.position - transform.position) * hit.distance, Color.yellow);
                 Debug.Log(hit.transform.name);
-                hit.transform.GetComponent<Enemy>().hit(damage);
+                hit.transform.GetComponent<Enemy>().hit(statistics.damage);
                 Debug.Log("HIT");
             }
             timeSinceLastShoot = 0;

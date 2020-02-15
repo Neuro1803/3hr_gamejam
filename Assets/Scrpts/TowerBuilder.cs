@@ -76,7 +76,12 @@ public class TowerBuilder : MonoBehaviour
         float minutes = Mathf.Floor(timer / 60);
         float seconds = Mathf.RoundToInt(timer % 60);
 
-        TimerDisplay.text = seconds.ToString();
+        TimerDisplay.text = "00:" + seconds.ToString() + "s";
+        if(seconds >= 30)
+        {
+            timer = 0;
+            SceneManager.LoadScene("DefenseScene");
+        }
     }
 
 

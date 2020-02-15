@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FActory.unity
     guid: 06f62f92d7ca9624593baf60db22ce22
+  - enabled: 1
+    path: Assets/Scenes/DefenseScene.unity
+    guid: e3243e0f880876d3ab94bb7022f9accd
   m_configObjects: {}

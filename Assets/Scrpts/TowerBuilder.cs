@@ -77,9 +77,10 @@ public class TowerBuilder : MonoBehaviour
         float seconds = Mathf.RoundToInt(timer % 60);
 
         TimerDisplay.text = "00:" + seconds.ToString() + "s";
-        if(seconds >= 30)
+        if(seconds >= 20)
         {
             timer = 0;
+            GameObject.Find("StaticData").GetComponent<StaticData>().towerStats = BuildWholeTower();
             SceneManager.LoadScene("DefenseScene");
         }
     }

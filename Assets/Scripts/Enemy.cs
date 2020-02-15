@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public Transform goal;
-    public int health;
-    public int damage;
+    public float health;
+    // public int damage;
 
     NavMeshAgent agent;
 
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         agent.destination = goal.position; 
     }
 
-    public void hit(float demage) {
+    public void hit(float damage) {
         health -= damage;
         if (health <= 0) {
             Destroy(gameObject);

@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public float damage;
     public TowerStatistics statistics;
-    private GameObject target;
-    private float timeSinceLastShoot;
+    public GameObject target;
+    public float timeSinceLastShoot;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        damage = statistics.damage;
     }
 
     // Update is called once per frame
@@ -22,9 +23,13 @@ public class Tower : MonoBehaviour
 
         if (timeSinceLastShoot >= 1/statistics.fireRate) {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, target.transform.position, out hit, statistics.range)) {
-                hit.transform.GetComponent<Enemy>().hit(statistics.damage);
+            if (Physics.Raycast(transform.position, (target.transform.position - transform.position), out hit, statistics.range)) {
+                Debug.DrawRay(transform.position, (target.transform.position - transform.position) * hit.distance, Color.yellow);
+                Debug.Log(hit.transform.name);
+                hit.transform.GetComponent<Enemy>().hit(damage);
+                Debug.Log("HIT");
             }
+            timeSinceLastShoot = 0;
         } else {
             timeSinceLastShoot += Time.deltaTime;
         }

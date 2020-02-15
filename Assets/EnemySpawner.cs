@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StaticData staticData = GameObject.Find("StaticData").GetComponent<StaticData>();
+        enemyCount = staticData.levelNumber * 4 + 6;
         StartCoroutine(SpawnCorutine());
     }
 

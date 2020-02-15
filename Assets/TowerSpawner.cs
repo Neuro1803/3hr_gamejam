@@ -9,7 +9,7 @@ public class TowerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject tower = Instantiate(towerToSpawn);
+        GameObject tower = Instantiate(towerToSpawn, transform.position, Quaternion.identity);
         tower.GetComponent<Tower>().statistics = GameObject.Find("StaticData").GetComponent<StaticData>().towerStats;
     }
 

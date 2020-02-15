@@ -1,29 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public Transform goal;
     public int health;
     public int damage;
-    public int speed;
 
-    public bool canAttack = false;
+    NavMeshAgent agent;
 
-    public void Update() {
-        if (canAttack) {
+    void Start () {
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = goal.position; 
+    }
 
-        } else {
-            float translation = -1 * speed * Time.deltaTime;
-            transform.Translate(0, 0, translation, Space.World);
+    public void hit(float demage) {
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
         }
-    }
-
-    private void OnCollisionEnter(Collision other) {
-        canAttack = true;
-    }
-
-    private void OnCollisionExit(Collision other) {
-        canAttack = false;
     }
 }
